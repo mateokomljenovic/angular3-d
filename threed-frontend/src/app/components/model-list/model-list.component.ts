@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from './../../service/api.service';
 
 @Component({
   selector: 'app-model-list',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModelListComponent implements OnInit {
 
-  constructor() { }
+  Model: any = []; 
 
-  ngOnInit(): void {
+  constructor(private apiService: ApiService) {
+    this.readModel(); 
+  } 
+
+  ngOnInit(): void {}
+
+  readModel() {
+    this.apiService.getModels().subscribe((data) => {
+      this.Model = data; 
+    })
   }
 
 }

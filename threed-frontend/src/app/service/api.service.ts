@@ -15,6 +15,7 @@ export class ApiService {
 
   // Post a model
   createModel(data): Observable<any> {
+    console.log('data', data)
     let url = `${this.url}/create-model`
     return this.http.post(url, data).pipe(catchError(this.errorHandler))
   }
