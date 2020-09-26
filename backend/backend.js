@@ -4,7 +4,7 @@ let path = require("path");
 let mongoose = require("mongoose");
 let cors = require("cors");
 let bodyParser = require("body-parser");
-let dbConfig = require("../database/db");
+let dbConfig = require("./database/db");
 
 //Connect to the database
 mongoose.Promise = global.Promise;
@@ -38,10 +38,13 @@ app.use(
 );
 
 // Cors
-app.use(cors())
+
+app.use(cors()); 
+app.use(express.static(path.join(__dirname, 'dist/threed-frontend')));
+app.use('/', express.static(path.join(__dirname, 'dist/threed-frontend')));
 app.use('/api', modelRoute)
 
-// Connect to 4201
+// Connect to 3000
 app.get('/', function(req, res){
   res.send('Hello from backend!');
 });
@@ -58,7 +61,7 @@ app.use(function (err, req, res, next) {
 });
 
 // Port
-const port = process.env.PORT || 4201
+const port = process.env.PORT || 3000
 const server = app.listen(port, () => {
   console.log(`Backend connected to the port ${port}`)
 })

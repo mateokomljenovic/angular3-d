@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ModelCreateComponent } from './components/model-create/model-create.component'
 import { ModelListComponent } from './components/model-list/model-list.component'
+import { AppComponent } from './app.component'
+
 
 const appRoutes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'create-model' },
+  { path: '', component: AppComponent},
   { path: 'create-model', component: ModelCreateComponent },
   { path: 'model-list', component: ModelListComponent }
 ];

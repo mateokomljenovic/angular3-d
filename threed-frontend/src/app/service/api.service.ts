@@ -7,15 +7,13 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
   providedIn: 'root'
 })
 export class ApiService {
-
-  url: string = "http://localhost:4200/";
+  url: string = "http://localhost:3000/api";
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
 
   // Post a model
   createModel(data): Observable<any> {
-    console.log('data', data)
     let url = `${this.url}/create-model`
     return this.http.post(url, data).pipe(catchError(this.errorHandler))
   }

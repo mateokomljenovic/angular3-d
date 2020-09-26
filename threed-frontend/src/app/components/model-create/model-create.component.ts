@@ -45,23 +45,24 @@ export class ModelCreateComponent implements OnInit {
   // Dropdown
 
    updateModel(e){
-    this.form.get('description').setValue(e, {
+    this.modelForm.get('description').setValue(e, {
       onlySelf: true
     })
   }
 
   // Submit
   onSubmit(modelForm) {
-    console.log('modelForm', modelForm)
-    console.log('this.submitted', this.submitted)
     this.submitted = true;
+    
     if (!this.modelForm.valid) {
+    
       return false
+    
     } else {
       this.apiService.createModel(this.modelForm.value)
         .subscribe(
           (res) => {
-            console.log('Employee successfully created!')
+            console.log('Model successfully created!')
             this.NgZone.run(() => this.router.navigateByUrl('/model-list'))
           }, (err) => {
             console.log(err)
