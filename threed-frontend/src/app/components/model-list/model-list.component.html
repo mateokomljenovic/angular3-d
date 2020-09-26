@@ -2,28 +2,23 @@
   <!-- No data message -->
   <p *ngIf="Model.length <= 0" class="no-data text-center">There is no model added yet!</p>
 
-  <!-- Employee list -->
+  <!-- Model list -->
+  <h1>Currently available models</h1>
   <table class="table table-bordered" *ngIf="Model.length > 0">
-    <thead class="table-success">
+    <thead class="table-primary">
       <tr>
-        <th scope="col">URL</th>
         <th scope="col">Text</th>
         <th scope="col">Description</th>
-        <th scope="col">Color</th>
-        <th scope="col">Scale</th>
-        <th scope="col center">Update</th>
+        <th scope="col center">View</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let model of Model; let i = index">
-        <th scope="row">{{model.url}}</th>
-        <td>{{model.text}}</td>
+        <th scope="row">{{model.text}}</th>
         <td>{{model.description}}</td>
-        <td>{{model.color}}</td>
-        <td>{{model.scale}}</td>
         <td class="text-center edit-block">
           <span class="edit" [routerLink]="['/edit-model/', model.url]">
-            <button type="button" class="btn btn-success btn-sm">Edit</button>
+            <button type="button" class="btn btn-success btn-sm">View</button>
           </span>
         </td>
       </tr>

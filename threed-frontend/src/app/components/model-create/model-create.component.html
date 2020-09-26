@@ -2,12 +2,12 @@
   <div class="col-md-4 register-model">
   <!-- form card register -->
     <div class="card-body">
-      <form [formGroup]="modelForm" (ngSubmit)="onSubmit(modelForm.value)">
+      <form [formGroup]="modelForm" (submit)="onSubmit(modelForm.value)">
         <div class="form-group">
           <label for="inputURL">URL</label>
           <input class="form-control" type="text" formControlName="url">
           <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && modelForm.value.invalid">
+          <div class="invalid-feedback" *ngIf="submitted && form.url.errors?.required">
             URL of the model is required.
           </div>
         </div>
@@ -16,7 +16,7 @@
           <label for="inputText">Text</label>
           <input class="form-control" type="text" formControlName="text">
           <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && modelForm.value.invalid">
+          <div class="invalid-feedback" *ngIf="submitted && form.text.errors?.required">
             Name of the model is required.
           </div>
         </div>
@@ -24,14 +24,14 @@
         <!-- Description -->
         <div class="form-group">
           <label for="inputDescription">Description</label>
-          <select class="custom-select form-control" (change)="updateModel($event.value)"
+          <select class="custom-select form-control" (change)="updateModel($event.target.value)"
             formControlName="description">
             <option value="">Choose Model Description...</option>
             <option *ngFor="let modelType of ModelProfile" value="{{modelType}}">{{modelType}}
             </option>
           </select>
           <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && modelForm.value.invalid">
+          <div class="invalid-feedback" *ngIf="submitted && form.description.errors?.required">
             Choose the model description.
           </div>
         </div>
@@ -41,7 +41,7 @@
           <label for="inputColor">Color</label>
           <input class="form-control" type="text" formControlName="color">
           <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && modelForm.value.invalid">
+          <div class="invalid-feedback" *ngIf="submitted && form.color.errors?.required">
             Color of the model is required.
           </div>
         </div>
@@ -51,15 +51,12 @@
           <label for="inputScale">Scale</label>
           <input class="form-control" type="text" formControlName="scale">
           <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && modelForm.value.invalid">
+          <div class="invalid-feedback" *ngIf="submitted && form.scale.errors?.required">
             Scale of the model is required.
           </div>
         </div>
   
-
-
         <!--Submit button-->
-
         <div class="form-group">
           <button class="btn btn-success btn-lg btn-block" type="submit">Submit Model</button>
         </div>

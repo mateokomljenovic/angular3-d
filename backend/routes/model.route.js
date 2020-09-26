@@ -8,8 +8,9 @@ const modelRoute = express.Router();
 let Model = require("../models/Model");
 
 //Add new model
-modelRoute.route("/add").post((req, res, next) => {
+modelRoute.route("/create-model").post((req, res, next) => {
   Model.create(req.body, (err, data) => {
+    console.log('req.body', req.body)
     if (err) {
       return next(err);
     } else {
