@@ -31,7 +31,9 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/gsap/dist/gsap.js"
+            ]
           },
           "configurations": {
             "production": {

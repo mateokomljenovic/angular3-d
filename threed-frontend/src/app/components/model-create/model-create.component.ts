@@ -26,7 +26,6 @@ export class ModelCreateComponent implements OnInit {
   ngOnInit() { }
 
   // Form Scheme
-
   mainForm() {
     this.modelForm = this.fb.group({
       url: ['', [Validators.required]],
