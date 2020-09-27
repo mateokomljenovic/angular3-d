@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box; 
+}
+
+.component-creator {
+  position: sticky;  
+  top: 20%; 
+}
+.component-creator2{
+  height: 100vh;   
+}
+
+main {
+  font-family: 'Roboto', sans-serif;  
+}
+
+nav {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  min-height: 10vh; 
+}
+
+.nav-links{
+  display: flex; 
+  list-style: none;
+
+  & li {
+    margin-right: 1rem; 
+    padding-left: 2rem;
+    padding-right: 2rem;  
+    font-size: 1.3rem;
+    border: 1px solid #71797B;
+    color: #292929; 
+  }
+}
+
+#logo{
+  font-family: 'Lobster', cursive; 
+  font-weight: lighter; 
+  font-size: 2rem; 
+  color: #292929;
+}
+
+a {
+  text-decoration: none; 
+  color: #292929;
+  &:hover {
+    color: white; 
+  }
+}

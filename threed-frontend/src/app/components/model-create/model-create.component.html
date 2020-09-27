@@ -1,67 +1,81 @@
-<div class="row justify-content-center">
-  <div class="col-md-4 register-model">
-  <!-- form card register -->
-    <div class="card-body">
-      <form [formGroup]="modelForm" (submit)="onSubmit(modelForm.value)">
-        <div class="form-group">
-          <label for="inputURL">URL</label>
-          <input class="form-control" type="text" formControlName="url">
-          <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && form.url.errors?.required">
-            URL of the model is required.
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<div class="component-creator2">
+<main>
+        <nav class="my-2 my-md-0 mr-md-3">
+          <h1 id="logo" class="my-0 mr-md-auto">Thr33d</h1>
+          <ul class="nav-links">
+            <li><a routerLinkActive="active" routerLink="/create-model">Add Model</a></li>
+            <li><a routerLinkActive="active" routerLink="/model-list">View Models</a></li>
+          </ul>
+        </nav>
+    </main>
+<div class="component-creator">
+  <div class="row justify-content-center">
+    <div class="col-md-4 register-model">
+    <!-- form card register -->
+      <div class="card-body">
+        <form [formGroup]="modelForm" (submit)="onSubmit(modelForm.value)">
+          <div class="form-group">
+            <label for="inputURL">URL</label>
+            <input class="form-control" type="text" formControlName="url">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && form.url.errors?.required">
+              URL of the model is required.
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="inputText">Text</label>
-          <input class="form-control" type="text" formControlName="text">
-          <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && form.text.errors?.required">
-            Name of the model is required.
+          <div class="form-group">
+            <label for="inputText">Text</label>
+            <input class="form-control" type="text" formControlName="text">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && form.text.errors?.required">
+              Name of the model is required.
+            </div>
           </div>
-        </div>
 
-        <!-- Description -->
-        <div class="form-group">
-          <label for="inputDescription">Description</label>
-          <select class="custom-select form-control" (change)="updateModel($event.target.value)"
-            formControlName="description">
-            <option value="">Choose Model Description...</option>
-            <option *ngFor="let modelType of ModelProfile" value="{{modelType}}">{{modelType}}
-            </option>
-          </select>
-          <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && form.description.errors?.required">
-            Choose the model description.
+          <!-- Description -->
+          <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <select class="custom-select form-control" (change)="updateModel($event.target.value)"
+              formControlName="description">
+              <option value="">Choose Model Description...</option>
+              <option *ngFor="let modelType of ModelProfile" value="{{modelType}}">{{modelType}}
+              </option>
+            </select>
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && form.description.errors?.required">
+              Choose the model description.
+            </div>
           </div>
-        </div>
 
-        <!-- Color -->
-        <div class="form-group">
-          <label for="inputColor">Color</label>
-          <input class="form-control" type="text" formControlName="color">
-          <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && form.color.errors?.required">
-            Color of the model is required.
+          <!-- Color -->
+          <div class="form-group">
+            <label for="inputColor">Color</label>
+            <input class="form-control" type="text" formControlName="color">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && form.color.errors?.required">
+              Color of the model is required.
+            </div>
           </div>
-        </div>
 
-        <!-- Scale -->
-        <div class="form-group">
-          <label for="inputScale">Scale</label>
-          <input class="form-control" type="text" formControlName="scale">
-          <!-- error -->
-          <div class="invalid-feedback" *ngIf="submitted && form.scale.errors?.required">
-            Scale of the model is required.
+          <!-- Scale -->
+          <div class="form-group">
+            <label for="inputScale">Scale</label>
+            <input class="form-control" type="text" formControlName="scale">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && form.scale.errors?.required">
+              Scale of the model is required.
+            </div>
           </div>
-        </div>
-  
-        <!--Submit button-->
-        <div class="form-group">
-          <button class="btn btn-success btn-lg btn-block" type="submit">Submit Model</button>
-        </div>
+    
+          <!--Submit button-->
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">Submit Model</button>
+          </div>
 
-        </form>
-        </div>
-  </div><!-- form card register -->
+          </form>
+          </div>
+    </div><!-- form card register -->
+  </div>
+</div>
 </div>
