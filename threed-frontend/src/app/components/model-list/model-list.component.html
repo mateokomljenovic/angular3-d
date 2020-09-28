@@ -1,5 +1,5 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-dark border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal text-white">ThreeD Model View App</h5>
+  <h5 class="my-0 mr-md-auto font-weight-normal text-white"></h5>
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/model-list">View Models</a>
   </nav>
@@ -15,17 +15,19 @@
   <table class="table table-bordered" *ngIf="Model.length > 0">
     <thead class="table-primary">
       <tr>
+        <th scope="col">ID</th>
         <th scope="col">Text</th>
-        <th scope="col">Description</th>
-        <th scope="col center">View</th>
+        <th scope="col center">Description</th>
+        <th scope="col center">Preview</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let model of Model; let i = index">
-        <th scope="row">{{model.text}}</th>
+        <th scope="row">{{model._id}}</th>
+        <td>{{model.text}}</td>
         <td>{{model.description}}</td>
         <td class="text-center edit-block">
-          <span class="edit" [routerLink]="['/edit-model/', model.url]">
+          <span class="edit" [routerLink]="['/model-view/', model._id]">
             <button type="button" class="btn btn-success btn-sm">View</button>
           </span>
         </td>
