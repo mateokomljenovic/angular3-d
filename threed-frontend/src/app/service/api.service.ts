@@ -25,13 +25,15 @@ export class ApiService {
   }
 
   // Model by ID
-
   getModel(id): Observable<any> {
-    let url = `${this.url}/model/${id}`
+    let url = `${this.url}/${id}`
+    console.log('url', url)
+    console.log('headers', this.headers)
     return this.http.get(url, {
       headers: this.headers
     }).pipe(
       map((res: Response) => {
+        console.log('res', res)
         return res || {}
       }),
       catchError(this.errorHandler)
